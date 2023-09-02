@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/tddnp/Express-mongoDB#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "3.1.8",
     "express": "4.18.2"
   }
 }
