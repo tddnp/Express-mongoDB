@@ -3,8 +3,7 @@ const express = require('express')
 
 const configviewEngine = (app) => {
     // config template engine
-    console.log('dir', __dirname);
-    app.set('views', path.join('./src/', 'views/'))
+    app.set('views', path.join('./src/views/'))
     app.set('view engine', 'ejs')
 
     // config static files
