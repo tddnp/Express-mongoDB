@@ -3,7 +3,7 @@ const path = require('path')
 require('dotenv').config()
 
 const app = express()
-const port = process.env.PORT || 8081
+const port = process.env.PORT || 808
 
 // config template engine
 app.set('views', path.join(__dirname, './src/views/'))
