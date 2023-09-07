@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Update</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/beiu.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,13 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/f64c9a68ab.js" crossorigin="anonymous"></script>
 </head>
-<style>
-    a {
-        text-decoration: none
-    }
-</style>
 
 <body>
     <!--NAVBAR-->
@@ -28,10 +22,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/listUser">List</a>
+                        <a class="nav-link" aria-current="page" href="/listUser">List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/create-user">New user</a>
+                        <a class="nav-link active" href="/create-user">New user</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -59,44 +53,33 @@
         </div>
     </nav>
     <!--NAVBAR-->
-    <!--Table-->
-    <div class="container">
-        <!-- <%= JSON.stringify(listUsers) %> -->
-        <table class="table table-hover">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email address</th>
-                <th>City</th>
-            </tr>
-            <% listUsers.forEach(function(user) { %>
-                <tr>
-                    <td>
-                        <%= user.id%>
-                    </td>
-                    <td>
-                        <%= user.name%>
-                    </td>
-                    <td>
-                        <%= user.email%>
-                    </td>
-                    <td>
-                        <%= user.city%>
-                    </td>
-                    <td>
-                        <a href="/edit-user/<%= user.id %>">
-                            <i class="fa-solid fa-bars fa-beat"></i>
-                        </a>
-                        <a href="/delete-user/<%= user.id %>">
-                            <i class="fa-solid fa-trash fa-shake" style="color: #51261f;"></i>
-                        </a>
-                    </td>
-                </tr>
 
-                <% }) %>
-        </table>
+    <!--FORM-->
+    <div class="container">
+        <form action="/edit-user" method="POST">
+            <legend>Add new user:</legend>
+            <div class="mb-3 d-none">
+                <label class="form-label">ID</label>
+                <input type="text" name="id" class="form-control" value="<%= userEdit.id %>" />
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" value="<%= userEdit.name %>" />
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                    value="<%= userEdit.email %>">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">City</label>
+                <input type="text" name="city" class="form-control" id="exampleInputEmail1"
+                    value="<%= userEdit.city %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    <!--Table-->
+    <!--FORM-->
 </body>
 
 </html>

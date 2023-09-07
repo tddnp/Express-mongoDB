@@ -9,3 +9,7 @@ table {
 .beiu {
     img: 20px;
 }
+
+.d-none {
+    display: none;
+}
