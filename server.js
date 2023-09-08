@@ -6,7 +6,7 @@ const route = require('./src/routes/web')
 const connection = require('./src/config/database')
 
 const app = express()
-const port = process.env.PORT || 808
+const port = process.env.PORT || 8081
 
 //config req.body
 app.use(express.json())
@@ -17,6 +17,9 @@ configviewEngine(app)
 
 // route
 app.use('/', route)
+
+//test connection
+connection()
 
 app.listen(port, () => {
     console.log(`app trying to listen of port: ${port}`)
